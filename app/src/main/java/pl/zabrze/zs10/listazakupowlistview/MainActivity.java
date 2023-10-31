@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
                         String produkt = editTextProdukt.getText().toString();
                         editTextProdukt.setText("");
                         produkty.add(produkt);
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+        );
+        listView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        produkty.remove(i);
                         adapter.notifyDataSetChanged();
                     }
                 }
