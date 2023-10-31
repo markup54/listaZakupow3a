@@ -23,9 +23,6 @@ public class MainActivity extends AppCompatActivity {
         editTextProdukt = findViewById(R.id.editTextTextPersonName);
         button = findViewById(R.id.button);
         listView = findViewById(R.id.listView);
-        produkty.add("mlelko");
-        produkty.add("mlelko");
-        produkty.add("mlelko");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
@@ -37,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         String produkt = editTextProdukt.getText().toString();
+                        editTextProdukt.setText("");
                         produkty.add(produkt);
                         adapter.notifyDataSetChanged();
                     }
